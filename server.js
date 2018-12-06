@@ -18,7 +18,7 @@ app.get('/hello', function(req, res){
   res.json({greetings: "Hello, API"});
 });
 
-app.post('/api/fileanalyse', multer({dest: 'uploads/'}).single('tempFile'), (req, res) => {
+app.post('/api/fileanalyse', multer({dest: process.cwd() + '/uploads/'}).single('upfile'), (req, res) => {
   res.json({filename: req.file.originalname, file_size: req.file.size});
   console.log(req.file);
 });
